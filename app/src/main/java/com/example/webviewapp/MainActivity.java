@@ -12,11 +12,14 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     private WebView myWebView;
+
     public void showExternalWebPage(){
+        myWebView.loadUrl("https://www.his.se");
         // TODO: Add your code for showing external web page here
     }
 
     public void showInternalWebPage(){
+        myWebView.loadUrl("file:///android_asset/Robin.html");
         // TODO: Add your code for showing internal web page here
     }
 
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        myWebView.findViewById(R.id.Robin);
+        myWebView = (WebView) findViewById(R.id.Robin);
         myWebView.setWebViewClient(new WebViewClient());
 
         myWebView.getSettings().setJavaScriptEnabled(true);
@@ -73,16 +76,20 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_external_web) {
             Log.d("==>","Will display external web page");
+            showExternalWebPage();
             return true;
         }
 
         if (id == R.id.action_internal_web) {
             Log.d("==>","Will display internal web page");
+            showInternalWebPage();
             return true;
         }
 
