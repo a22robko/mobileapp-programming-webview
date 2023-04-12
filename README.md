@@ -37,9 +37,9 @@ getSettings() som man senare ställer in i javaScriptEnabled till true
 
 
 Internal:
-![]("Bild1.png")
+![](NyBild1.png)
 External:
-![]("Bild2.png")
+![](NyBild2.png)
 
 Fördel:
 Det var lätt att följa instruktionerna som fanns i canvas samt att det var simpelt att
