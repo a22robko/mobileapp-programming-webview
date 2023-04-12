@@ -1,42 +1,51 @@
 
 # Rapport
 
-**Skriv din rapport här!**
+Besrkvining:
+Först hade man som uppgift att “Forka”. När man forkar skapar man en kopia av appen i min 
+egna github som jag senare kunde ändra och arbeta med. Sen klonade jag appen för att senare 
+kunna öppna den i Android Studio så där öppnades den och jag började ändra koden och följa 
+uppgiftsbeskrivningen. Det första som jag skulle göra var att ändra textsträngen, då var man 
+tvungen att göra det i strings.xml. För att ta sig dit var man tvungen att trycka på values 
+mappen.Sen när det var klart sa uppgiftsbeskrivningen att man skulle aktivera internetåtkomsten 
+det gjorde man i AndroidManifest.xml. Sen skapades man ett WebView element i layoutfilen 
+som heter actvity main.xml. Detta gjorde jag genom att byta ut den befintliga 
+Textview komponenten som fanns i appens huvudlayouft och i den fanns en 
+standardkomponent som heter Textview, det var denna komponent som byttes ut. 
+Detta för att kunna visa upp webbsidorna. Sen då gav man Webviews elementet ett ID genom 
+att använda sig av: android:id="@+id/my_webview". Sen säger uppgiften att man skall skapa 
+en privat medlemsvariabel med typ webView och sedan instansiera den i onCreate(). Senare 
+skapades en WebViewClient och till sist var man tvungen att skapa en javascript körning i 
+WebVuewClient samt lades en html sida in. Man var tvungen att implenetera funktionerna 
+showExternaWebPage() samt ShowInternalWebPage(). 
 
-_Du kan ta bort all text som finns sedan tidigare_.
+Förklara kod:
 
-## Följande grundsyn gäller dugga-svar:
+Här skapas WebView med findViewById(). Detta fungerar genom att använda sig av 
+TextView som konverteras till WebView.
+        myWebView = (WebView) findViewById(R.id.Robin);
 
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
 
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+Sen skapas WebView instans och tilldelas till Webview med hjälp av 
+WebviewClient().Denna hjälper med navigationen för WebView.
+        myWebView.setWebViewClient(new WebViewClient());
 
-```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
-```
 
-Bilder läggs i samma mapp som markdown-filen.
+Till slut lägger man in Javascript som akteiverar WEbview med hjälp av 
+getSettings() som man senare ställer in i javaScriptEnabled till true
+        myWebView.getSettings().setJavaScriptEnabled(true);
 
-![](android.png)
 
-Läs gärna:
+Internal:
+![](Bild.png)
+External:
+![](Bild.2png)
 
-- Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
-- Wunsche, B.C. (2013) A smartphone-based golf simulation exercise game for supporting arthritis patients. 2013 28th International Conference of Image and Vision Computing New Zealand (IVCNZ), IEEE, pp. 459–464.
-- Wohlin, C., Runeson, P., Höst, M., Ohlsson, M.C., Regnell, B., Wesslén, A. (2012) Experimentation in Software Engineering, Berlin, Heidelberg: Springer Berlin Heidelberg.
+Fördel:
+Det var lätt att följa instruktionerna som fanns i canvas samt att det var simpelt att
+hitta runt i android appen.
+
+och nackdel: 
+Att datorn laggar väldigt mycket eftersom min mac inte klarar av programmet. 
+
+
